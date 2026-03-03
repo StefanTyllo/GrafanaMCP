@@ -1,0 +1,12 @@
+services:
+  grafana-mcp:
+    build: .
+    image: ghcr.io/stefantyllo/grafanamcp:local
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.local
+    environment:
+      MCP_TRANSPORTS: "http"
+      MCP_HTTP_HOST: "0.0.0.0"
+      MCP_HTTP_PORT: "8080"
